@@ -1,0 +1,29 @@
+# Maintainer: ugjka <ugis.germanis@gmail.com>
+
+_pkgname=facecam
+pkgname="$_pkgname-git"
+pkgver=20170416.46b3271
+pkgrel=1
+pkgdesc='Poor mans facecam'
+arch=('x86_64')
+url="https://github.com/ugjka/${_pkgname}"
+license=('MIT')
+depends=('gtk3' 'glib2')
+makedepends=('go' 'go-tools' 'git' 'make')
+source=("$_pkgname"::"git+http://github.com/ugjka/${_pkgname}.git")
+md5sums=('SKIP')
+
+pkgver() {
+    cd $_pkgname
+    echo "$(git log -1 --format="%cd" --date=short | tr -d '-').$(git log -1 --format="%h")"
+}
+build(){
+    cd $_pkgname
+    make all
+}
+
+package(){
+    cd $_pkgname
+    make prefix="${pkgdir}"/usr install
+    make clean
+}
