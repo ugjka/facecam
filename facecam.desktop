@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Facecam
+GenericName=Facecom
+Comment=See your face
+Exec=facecam
+Icon=facecam
+Terminal=false
+Type=Application
+Categories=Multimedia;Video;GTK;
