@@ -2,10 +2,10 @@
 Version=1.0
 Encoding=UTF-8
 Name=Facecam
-GenericName=Facecom
+GenericName=Facecam
 Comment=See your face
 Exec=facecam
 Icon=facecam
 Terminal=false
 Type=Application
-Categories=Multimedia;Video;GTK;
+Categories=Multimedia;AudioVideo;Video;GTK;Graphics;
