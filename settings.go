@@ -76,7 +76,7 @@ func (s *settings) initWidgets() {
 	s.window.SetTitle("Facecam")
 	s.window.SetBorderWidth(6)
 	s.window.SetSizeRequest(300, 100)
-	s.window.SetIconFromFile("../share/icons/hicolor/256x256/apps/facecom.png")
+	s.window.SetIconFromFile("../share/icons/hicolor/256x256/apps/facecam.png")
 	grid, err := gtk.GridNew()
 	fatal(err)
 	grid.SetColumnHomogeneous(true)
