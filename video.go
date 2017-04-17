@@ -20,6 +20,7 @@ type video struct {
 	eventbox   *gtk.EventBox
 	width      int
 	height     int
+	configs    configs
 	config     v4l.DeviceConfig
 	device     *v4l.Device
 	devicePath string
@@ -40,6 +41,7 @@ func (w *video) open() {
 		w.close()
 		return
 	}
+	w.width = int(float64(w.height) * (float64(w.config.Width) / float64(w.config.Height)))
 	w.initWidgets()
 	w.wg.Add(1)
 	w.startStream()
@@ -100,8 +102,12 @@ func (w *video) getDevice() error {
 	if err != nil {
 		return err
 	}
-	w.config, err = w.device.GetConfig()
+	w.configs, err = w.device.ListConfigs()
 	if err != nil {
+		return err
+	}
+	w.config = w.configs[0]
+	if err := w.device.SetConfig(w.config); err != nil {
 		return err
 	}
 	if err := w.openDevice(); err != nil {
