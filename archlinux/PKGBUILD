@@ -2,7 +2,7 @@
 
 _pkgname=facecam
 pkgname="$_pkgname-git"
-pkgver=20170417.fdf3ca8
+pkgver=20170417.6a50076
 pkgrel=1
 pkgdesc='Poor mans facecam'
 arch=('x86_64')

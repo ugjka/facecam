@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"image"
 	"runtime"
 	"sync"
@@ -106,7 +107,14 @@ func (w *video) getDevice() error {
 	if err != nil {
 		return err
 	}
-	w.config = w.configs[0]
+	m := w.configs.createMap()
+	for _, v := range m[15] {
+		if v.Height > w.height {
+			w.config = v
+			fmt.Println(w.config)
+			break
+		}
+	}
 	if err := w.device.SetConfig(w.config); err != nil {
 		return err
 	}
