@@ -2,7 +2,7 @@
 
 _pkgname=facecam
 pkgname="$_pkgname-git"
-pkgver=20170417.58fecc5
+pkgver=20170417.03394bb
 pkgrel=1
 pkgdesc='Poor mans facecam'
 arch=('x86_64')
@@ -19,7 +19,7 @@ pkgver() {
 }
 build(){
     cd $_pkgname
-    make all
+    make prefix="${pkgdir}"/usr all
 }
 
 package(){
