@@ -4,7 +4,7 @@ GOPATH :=$(PWD)/build
 appname = facecam
 
 all:
-	GOPATH=$(GOPATH) go get github.com/ugjka/$(appname)
+	GOPATH=$(GOPATH) go get github.com/ugjka/$(appname) -ldflags="-X main.icon $(prefix)/share/icons/hicolor/256x256/apps/$(appname).png"
 
 install:
 	install -Dm755 $(GOPATH)/bin/$(appname) $(prefix)/bin/$(appname)

@@ -10,6 +10,8 @@ import (
 	"github.com/gotk3/gotk3/gtk"
 )
 
+var icon = "./facecam.png"
+
 func main() {
 	var vid video
 	vid.stop = make(chan bool)
