@@ -26,6 +26,7 @@ func main() {
 		vid.height = set.height
 		vid.width = int(float64(set.height) * 1.333333333)
 		vid.devicePath = set.device
+		vid.icon, _ = set.window.GetIcon()
 		set.hide()
 		vid.open()
 	}

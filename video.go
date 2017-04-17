@@ -30,6 +30,7 @@ type video struct {
 	ticker     *time.Ticker
 	img        *yuyv.Image
 	rgba       *image.RGBA
+	icon       *gdk.Pixbuf
 }
 
 func (w *video) open() {
@@ -85,7 +86,7 @@ func (w *video) startStream() {
 			yuyv.ToRGBA(w.rgba, w.rgba.Rect, w.img, w.img.Rect.Min)
 			_, err = glib.IdleAdd(func() bool {
 				w.update()
-				return false
+				return true
 			})
 			fatal(err)
 
@@ -132,6 +133,7 @@ func (w *video) initWidgets() {
 	w.window.SetPosition(gtk.WIN_POS_CENTER)
 	w.window.SetResizable(true)
 	w.window.SetTitle("facecam")
+	w.window.SetIcon(w.icon)
 	w.pixbuff, err = gdk.PixbufNew(gdk.COLORSPACE_RGB, true, 8, w.config.Width, w.config.Height)
 	fatal(err)
 	w.image, err = gtk.ImageNew()
