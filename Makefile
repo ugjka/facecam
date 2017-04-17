@@ -1,13 +1,14 @@
 prefix=/usr/local
 PWD := $(shell pwd)
-GOPATH :=$(PWD)/build
+GOPATH :=$(PWD)/deps
 appname = facecam
 
 all:
-	GOPATH=$(GOPATH) go get github.com/ugjka/$(appname) -ldflags="-X main.icon $(prefix)/share/icons/hicolor/256x256/apps/$(appname).png"
+	GOPATH=$(GOPATH) go get -d github.com/ugjka/$(appname)
+	GOPATH=$(GOPATH) go build -ldflags="-X main.icon=$(prefix)/share/icons/hicolor/256x256/apps/$(appname).png"
 
 install:
-	install -Dm755 $(GOPATH)/bin/$(appname) $(prefix)/bin/$(appname)
+	install -Dm755 $(appname) $(prefix)/bin/$(appname)
 	install -Dm644 LICENSE "$(prefix)/share/licenses/$(appname)/LICENSE"
 	install -Dm644 $(appname).png "$(prefix)/share/icons/hicolor/256x256/apps/$(appname).png"
 	install -Dm644 $(appname).desktop "$(prefix)/share/applications/$(appname).desktop"
@@ -20,3 +21,4 @@ uninstall:
 
 clean:
 	rm -rf $(GOPATH)
+	rm $(appname)
