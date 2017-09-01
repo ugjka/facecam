@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"image"
-	"runtime"
+	"runtime/debug"
 	"sync"
 	"time"
 
@@ -80,7 +80,7 @@ func (w *video) startStream() {
 			case <-w.stop:
 				return
 			case <-w.ticker.C:
-				runtime.GC()
+				debug.FreeOSMemory()
 			default:
 			}
 			buffer, err := w.device.Capture()
