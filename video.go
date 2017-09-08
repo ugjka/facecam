@@ -157,9 +157,8 @@ func (w *video) initWidgets() {
 	w.eventbox.Add(w.image)
 	w.window.Add(w.eventbox)
 	w.window.ShowAll()
-	screen, err := gdk.ScreenGetDefault()
-	fatal(err)
-	w.window.Move(screen.GetWidth(), screen.GetHeight())
+	//Use gdkMonitor when it is implemented
+	w.window.Move(-100000000, -100000000)
 }
 
 func (w *video) update() {
