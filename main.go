@@ -4,6 +4,7 @@
 package main
 
 import (
+	"runtime/debug"
 	"sync"
 	"time"
 
@@ -13,6 +14,7 @@ import (
 var icon = "./facecam.png"
 
 func main() {
+	debug.SetGCPercent(1)
 	var vid video
 	vid.stop = make(chan bool)
 	vid.wg = sync.WaitGroup{}
