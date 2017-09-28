@@ -5,7 +5,7 @@ appname = facecam
 
 all:
 	GOPATH=$(GOPATH) go get -d github.com/ugjka/$(appname)
-	GOPATH=$(GOPATH) go get -tags gtk_3_20 github.com/gotk3/gotk3/gtk
+	GOPATH=$(GOPATH) go install -tags gtk_3_20 github.com/gotk3/gotk3/gtk
 	GOPATH=$(GOPATH) go build -ldflags="-X main.icon=$(prefix)/share/icons/hicolor/256x256/apps/$(appname).png"
 
 install:
