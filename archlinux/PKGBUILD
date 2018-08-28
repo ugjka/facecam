@@ -1,5 +1,4 @@
-# Maintainer: ugjka <ugis.germanis@gmail.com>
-
+# Maintainer: ugjka <esesmu@protonmail.com>
 _pkgname=facecam
 pkgname="$_pkgname-git"
 pkgver=20170908.56076e2
