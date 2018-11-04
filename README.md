@@ -1,6 +1,6 @@
 # facecam
 
-[![Donate](https://dl.ugjka.net/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UVTCZYQ3FVNCY)
+[![Donate](https://dl.ugjka.net/Donate-PayPal-green.svg)](https://www.paypal.me/ugjka)
 
 poor mans facecam for streaming
 places the cam on bottom right corner on the screen
